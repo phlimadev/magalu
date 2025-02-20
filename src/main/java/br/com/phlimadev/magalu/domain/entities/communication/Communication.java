@@ -1,5 +1,6 @@
-package br.com.phlimadev.magalu.domain.communication;
+package br.com.phlimadev.magalu.domain.entities.communication;
 
+import br.com.phlimadev.magalu.domain.enums.StatusEnum;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,4 +21,5 @@ public class Communication {
     private String recipientPhone;
     private String message;
     private LocalDateTime modifyScheduleStatus;
+    private StatusEnum status;
 }
