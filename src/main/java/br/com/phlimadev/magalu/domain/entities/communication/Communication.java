@@ -1,6 +1,7 @@
 package br.com.phlimadev.magalu.domain.entities.communication;
 
 import br.com.phlimadev.magalu.domain.enums.StatusEnum;
+import br.com.phlimadev.magalu.dtos.SchedulingDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,4 +24,13 @@ public class Communication {
     private String message;
     private LocalDateTime modifyScheduleStatus;
     private StatusEnum status;
+
+    public Communication(SchedulingDTO scheduling) {
+        this.dateTimeShipping = scheduling.dateTimeShipping();
+        this.recipientEmail = scheduling.recipientEmail();
+        this.recipientPhone = scheduling.recipientPhone();
+        this.message = scheduling.message();
+        this.dateTimeScheduling = LocalDateTime.now();
+        this.status = StatusEnum.SCHEDULED;
+    }
 }
